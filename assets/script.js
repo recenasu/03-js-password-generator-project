@@ -5,11 +5,17 @@ var numberOfCharacters;
 var includeLowercase;
 var includeUppercase;
 var includeNumbers;
-var includeSpecialchar;
-// var specChar = ["\"\ \!\"\#\$\%\&\'\(\)\*\+\,\-\.\/\:\;\<\=\>\?\@\[\\\]\^\_\`\{\|\}\~"];
-// var usableSpecChar = specChar.split();
-// var specialCharacters = [!,",#,$,%,&,',(,),*,+,,,-,.,/,:,;,<,=,>,?,@,[,\,],^,_,`,{,|,},~];
-// console.log(usableSpecChar);
+var includeSpecialChar;
+var uppercaseSet;
+var lowercaseSet;
+var numberSet;
+var specCharSet;
+var numbers = "0123456789";
+var lowercase = "abcdefghijklmnopqrstuvwxyz";
+var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var specialCharacters = "&$%<>?/\:()";
+// "!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+
 
 function generatePassword() {
 //Display a dialog using the prompt() method asking how long the password should be, and console log for debug
@@ -30,12 +36,52 @@ if (numberOfCharacters < 8 || numberOfCharacters > 128) {
   includeNumbers = window.confirm("Include numbers in password?");
   console.log("Include numbers? " + includeNumbers);
   //Display a dialog asking if the password should include special characters, and console log for debug
-  includeSpecialchar = window.confirm("Include special characters in password?"); 
-  console.log("Include special characters? " + includeSpecialchar);
+  includeSpecialChar = window.confirm("Include special characters in password?"); 
+  console.log("Include special characters? " + includeSpecialChar);
 }
-// console logs for debug
+//password breakdown function. Takes the numberOfCharacters variables and randomly breaks it down into number of each type of character
+
+//create a numbers array: 0 - 9
+//create a lowercase array: a - z
+//create an uppercase array: A - Z
+//create a spec char array: " !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+//concat the arrays based on the selections made
+//Use a for loop to randomly pull a character from the array i times (where i = the specififed length) and add it to the password array
+// conver the password array to a string
+// set the string equal to the myGeneratedPassword character 
+
+if (includeLowercase) {
+  lowercaseSet = lowercase.split("");
+} else {
+  lowercaseSet = [];
+}
+
+if (includeUppercase) {
+  uppercaseSet = uppercase.split("");
+} else {
+  uppercaseSet = [];
+}
+
+if (includeNumbers) {
+  numberSet = numbers.split("");
+} else {
+  numberSet = [];
+}
+
+if (includeSpecialChar) {
+  specCharSet = specialCharacters.split("");
+} else {
+  specCharSet = [];
+}
+
+console.log(lowercaseSet)
+console.log(uppercaseSet)
+console.log(numberSet)
+console.log(specCharSet)
 
 
+var charBucket = specCharSet.concat(uppercaseSet.concat(lowercaseSet.concat(numberSet)));
+console.log(charBucket);
 
 
 
