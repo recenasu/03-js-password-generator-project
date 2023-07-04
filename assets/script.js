@@ -1,7 +1,9 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// review the class video for what to put here.
+function generatePassword() {
+  
+}
 
 
 // Write password to the #password input
