@@ -1,6 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var myGeneratedPassword;
+var myGeneratedPassword = [];
 var numberOfCharacters;
 var includeLowercase;
 var includeUppercase;
@@ -10,6 +10,7 @@ var uppercaseSet;
 var lowercaseSet;
 var numberSet;
 var specCharSet;
+var pulledChar;
 var numbers = "0123456789";
 var lowercase = "abcdefghijklmnopqrstuvwxyz";
 var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -67,20 +68,26 @@ function generatePassword() {
     specCharSet = [];
   }
   // console log the arrays for debugging.
-  console.log(lowercaseSet)
-  console.log(uppercaseSet)
-  console.log(numberSet)
-  console.log(specCharSet)
+  console.log(lowercaseSet);
+  console.log(uppercaseSet);
+  console.log(numberSet);
+  console.log(specCharSet);
 
   //concat the arrays into a single array based on the selections made. Console log the array for debugging.
   var charBucket = specCharSet.concat(uppercaseSet.concat(lowercaseSet.concat(numberSet)));
-  console.log(charBucket);
-
-
-  //Use a for loop to randomly pull a character from the array i times (where i = the specififed length) and add it to the password array
-  // conver the password array to a string
-  // set the string equal to the myGeneratedPassword character 
-  //fix the spec characters array to include all of them, if possible.
+  console.log("charBucket: " + charBucket);
+  //Pull a random number from the charBucket array and add it to the myGeneratedPassword array. Repeat this until the specified numberOfCharacters is reached. Console log random index for debugging.
+  for (i = 0; i < numberOfCharacters; i++) {
+    index = Math.floor(Math.random() * (charBucket.length));
+    console.log("charBucket length: " + charBucket.length);
+    console.log("Index: " + index);
+    pulledChar = charBucket[index];
+    console.log("pulledChar: " + pulledChar);
+    myGeneratedPassword.push(pulledChar);
+    // Convert the array to the single string value. Console log the value for debugging.
+    myGeneratedPassword.join("");
+    console.log("Generated Password: " + myGeneratedPassword);
+  };
 
 
   return myGeneratedPassword;
