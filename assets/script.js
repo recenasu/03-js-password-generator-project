@@ -1,4 +1,4 @@
-// Assignment Code
+// Variables
 var generateBtn = document.querySelector("#generate");
 var myGeneratedPassword = [];
 var passwordArray = [];
@@ -16,7 +16,6 @@ var numbers = "0123456789";
 var lowercase = "abcdefghijklmnopqrstuvwxyz";
 var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var specialCharacters = "#&$%*+-.;@[]{}|<>?/_=\~:()";
-// "!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 
 
 function generatePassword() {
@@ -41,28 +40,26 @@ function generatePassword() {
     includeSpecialChar = window.confirm("Include special characters in password?");
     console.log("Include special characters? " + includeSpecialChar);
   }
-  //password breakdown function. Takes the numberOfCharacters variables and randomly breaks it down into number of each type of character
-
-
-  //create a lowercase array: a - z if lowercase was selected. Otherwise, create an emtpy array.
+  
+  //create a lowercase array: a - z if lowercase was selected. Otherwise, create an empty array.
   if (includeLowercase) {
     lowercaseSet = lowercase.split("");
   } else {
     lowercaseSet = [];
   }
-  //create an uppercase array: A - Z if uppercase was selected. Otherwise, create an emtpy array.
+  //create an uppercase array: A - Z if uppercase was selected. Otherwise, create an empty array.
   if (includeUppercase) {
     uppercaseSet = uppercase.split("");
   } else {
     uppercaseSet = [];
   }
-  //create a numbers array: 0 - 9 if numbers was selected. Otherwise, create an emtpy array.
+  //create a numbers array: 0 - 9 if numbers was selected. Otherwise, create an empty array.
   if (includeNumbers) {
     numberSet = numbers.split("");
   } else {
     numberSet = [];
   }
-  //create a spec char array: " !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~" if special characters was selected. Otherwise, create an emtpy array.
+  //create a spec char array: #&$%*+-.;@[]{}|<>?/_=\~:() if special characters was selected. Otherwise, create an empty array.
   if (includeSpecialChar) {
     specCharSet = specialCharacters.split("");
   } else {
