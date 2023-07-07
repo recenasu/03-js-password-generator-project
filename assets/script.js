@@ -40,7 +40,7 @@ function generatePassword() {
     includeSpecialChar = window.confirm("Include special characters in password?");
     console.log("Include special characters? " + includeSpecialChar);
   }
-  
+
   //create a lowercase array: a - z if lowercase was selected. Otherwise, create an empty array.
   if (includeLowercase) {
     lowercaseSet = lowercase.split("");
@@ -96,7 +96,7 @@ function generatePassword() {
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-  
+
   passwordText.value = password;
 
 }
